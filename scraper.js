@@ -11,7 +11,13 @@ const CATEGORIES_URLS = [
     'https://www.willemsefrance.fr/collections/arbre-de-judee',
     'https://www.willemsefrance.fr/collections/bouleau-betula-lat',
     'https://www.willemsefrance.fr/collections/cerisier-du-japon',
-    'https://www.willemsefrance.fr/collections/coniferes'
+    'https://www.willemsefrance.fr/collections/coniferes',
+    'https://www.willemsefrance.fr/collections/acacias-acacia-lat',
+    'https://www.willemsefrance.fr/collections/albizia',,
+    'https://www.willemsefrance.fr/collections/chene-quercus-lat',
+    'https://www.willemsefrance.fr/collections/erable',
+    'https://www.willemsefrance.fr/collections/frene-fraxinus-lat',
+    'https://www.willemsefrance.fr/collections/hetre-fagus-lat'
 ];
 
 async function appendToFile(data) {
@@ -82,12 +88,12 @@ async function scrapeCategoryPage(browser, categoryUrl) {
                             }
                         });
 
-                        const shortDescription = document.querySelector('.product__description-content')?.textContent.trim();
+                        const shortDescription = document.querySelector('h2.vv-super-characteristics.h6')?.textContent.trim();
                         if (shortDescription) {
                             characteristics['Description courte'] = shortDescription;
                         }
 
-                        const detailedContent = document.querySelector('.product-tabs__tab-item-content.rte')?.innerHTML;
+                        const detailedContent = document.querySelector('.product-tabs__tab-item-content.rte')?.textContent.trim();
                         if (detailedContent) {
                             characteristics['Description détaillée'] = detailedContent;
                         }
